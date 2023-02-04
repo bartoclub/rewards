@@ -209,6 +209,8 @@ class RewardsPlayer():
 	def search_new_term(self, text):
 		player.get_browser_to_front()
 		for end_index, end_character in enumerate(text):
+			if text[end_index] == ' ':
+				continue
 			self.select_address_bar()
 			self.key_press('backspace')
 			for index, character in enumerate(text):
@@ -223,6 +225,7 @@ class RewardsPlayer():
 
 if __name__ == "__main__":
 	player = RewardsPlayer()
-	search_texts = ["python visual studio code", "one piece strong world movie", "avengers infinity war release"]
-	search_text = search_texts[random.randint(0, 2)]
+	search_texts = ["python visual studio code download windows", "one piece strong world movie release date", "avengers infinity war release date in india", "import and export devtools instances"]
+	random_number = int(time.time()%4)
+	search_text = search_texts[random_number]
 	player.search_new_term(search_text)
