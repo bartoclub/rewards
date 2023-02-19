@@ -187,13 +187,15 @@ class RewardsPlayer():
 	
 	def key_down(self, key):
 		win32api.keybd_event(VK_CODE[key], 0, 0, 0)
-		time.sleep(0.2)
+		time.sleep(0.05)
 	
 	def key_up(self, key):
 		win32api.keybd_event(VK_CODE[key], 0, win32con.KEYEVENTF_KEYUP, 0)
-		time.sleep(0.2)
+		time.sleep(0.05)
 	
 	def key_press(self, key):
+		if key == ' ':
+			time.sleep(0.2)
 		self.key_down(key)
 		self.key_up(key)
 	
@@ -222,6 +224,9 @@ class RewardsPlayer():
 			self.key_press('enter')		
 			if random.randint(0, 500) < 250:
 				player.move_cursor_randomly(200)
+				time.sleep(0.5)
+			else:
+				time.sleep(1)
 
 if __name__ == "__main__":
 	player = RewardsPlayer()
