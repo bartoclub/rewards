@@ -6,6 +6,20 @@ var msnShoppingGamePane = document.querySelector("shopping-page-base")
 if(msnShoppingGamePane != null){
     msnShoppingGamePane.scrollIntoView();
     msnShoppingGamePane.cardsPerGame = 1;
-    msnShoppingGamePane.resetGame();
+	console.log(msnShoppingGamePane)
+	try {
+		msnShoppingGamePane.resetGame();
+	} catch {
+		console.log("cant reset game");
+	}
 }
 else alert("Unable to locate the shopping game!");
+
+function removeBlur(){
+	try {
+		document.querySelector("shopping-modal[blurprice]").removeAttribute("blurprice")
+	} catch {
+	}
+}
+
+setInterval(removeBlur, 500);
